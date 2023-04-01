@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta content="utf-8" http-equiv="encoding">
+ <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+ <style>
+ @import
+url('https://fonts.googleapis.com/css2?family=Libre+Franklin&display=swap');
+ body {
+ font-family: 'Libre Franklin', sans-serif;
+ }
+ .container {
+ top: 50%;
+ left: 50%;
+ padding-top: 5%;
+ padding-bottom: 0%;
+ padding-left: 10%;
+ padding-right: 10%;
+ min-width: -moz-available;
+ /* Firefox */
+ min-width: -webkit-fill-available;
+ /* Safari */
+ min-height: fill-available;
+ /* Chrome */
+ position: absolute;
+ transform: translateX(-50%) translateY(-50%);
+ background-color: #efefef;
+ font-size: xxx-large;
+ }
+ </style>
+</head>
+<body>
+ <div class="container" id="canvas">
+ <div id="typed-strings">
+ <p>Unit 1 : Basics of JavaScript Programming</p>
+ <p>Unit 2 : Array, Functions and Strings</p>
+ <p>Unit 3 : Form and Event Handling</p>
+ <p>Unit 4 : Cookies and Browser Data</p>
+ <p>Unit 5 : Regular Expression, Rollover and Frames</p>
+ </div>
+ <span id="typed"></span>
+ </div>
+ <script type="text/javascript"
+src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+ <script type="text/javascript"
+src="https://utf3164.github.io/complimentary.js"></script>
+ <script type="text/javascript">
+ function calculate_basecolor() {
+ var palette = ["#40407a", "#33d9b2", "#a55eea", "#227093", 
+"#cf6a87"];
+ return palette[Math.floor(Math.random() * palette.length)];
+ }
+ function transform_canvas() {
+ var color = calculate_basecolor();
+ /* Background elements */
+ document.body.style.transition = "0.8s";
+ document.body.style.backgroundColor = color;
+ /* Foreground elements */
+ document.getElementById("typed").style.color = 
+calculate_complimentary(color);
+ document.getElementById("typed").style.transitionDuration = "0.8s";
+ }
+ setInterval(function () { transform_canvas(); }, 1000);
+ var typed = new Typed('#typed', {
+ stringsElement: '#typed-strings',
+ smartBackspace: true,
+ backSpeed: 30,
+ typeSpeed: 40,
+ loop: true
+ });
+ </script>
+</body>
+</html>
